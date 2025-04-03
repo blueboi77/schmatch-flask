@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Search for schemes...</title>
+    <link rel="stylesheet" href="static\style-search-display.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">logo</div>
+        <div class="menu">
+            <div class="option">All Available Schemes</div>
+            <div id="search-bar" class="search">
+                <input type="text" placeholder="Search here..." />
+                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </div>
+    <h1>Available Schemes</h1>
+    <ul>
+        {% for scheme in schemes %}
+            <li>
+                <h2>{{ scheme.get('name', 'Unnamed Scheme') }}</h2>
+                <p>{{ scheme.get('description', 'No description available') }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
