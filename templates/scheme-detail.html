@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ scheme.pageProps.schemeData.en.basicDetails.schemeName or "Unnamed Scheme" }}</title>
+    <link rel="stylesheet" href="/static/style-scheme.css">
+</head>
+<body>
+    <div class="top-bar">
+        <a href="/scheme" style="color:white; text-decoration:none;">&larr; back to list</a>
+    </div>
+    <div class="scheme-detail">
+        <h1>{{ scheme.pageProps.schemeData.en.basicDetails.schemeName or "Unnamed Scheme" }}</h1>
+        <p><strong>Short Title:</strong> {{ scheme.pageProps.schemeData.en.basicDetails.schemeShortTitle or "N/A" }}</p>
+        <p><strong>Description:</strong> {{ scheme.pageProps.schemeData.en.schemeContent.briefDescription or "No description available." }}</p>
+        
+        {% if scheme.pageProps.schemeData.en.basicDetails.tags %}
+        <p><strong>Tags:</strong> {{ scheme.pageProps.schemeData.en.basicDetails.tags | join(', ') }}</p>
+        {% endif %}
+        
+        <div class="description">
+            {{ scheme.pageProps.schemeData.en.schemeContent.detailedDescription | safe }}
+        </div>
+    </div>
+</body>
+</html>

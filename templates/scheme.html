@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheme List</title>
+    <link rel="stylesheet" href="/static/style-scheme.css">
+</head>
+<body>
+    <div class="top-bar">
+        <input type="text" id="search" placeholder="Search schemes..." oninput="searchSchemes()">
+    </div>
+    <div class="scheme-container" id="scheme-list">
+        {% for scheme in schemes %}
+        <a href="/scheme/{{ scheme.filename }}" class="scheme-card">
+            <h3>{{ scheme.name }}</h3>
+            <p>{{ scheme.tags | join(', ') }}</p>
+        </a>
+        {% endfor %}
+    </div>
+
+    <script>
+        function searchSchemes() {
+            const query = document.getElementById('search').value;
+            window.location.href = `/scheme?search=${query}`;
+        }
+    </script>
+</body>
+</html>
