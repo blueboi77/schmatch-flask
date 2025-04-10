@@ -16,10 +16,7 @@ def fefault():
 
 @app.route('/home')
 def home():
-    if 'name' in session:
-        return render_template('home.html', name=session['name'])
-    else:
-        return render_template('home.html')
+    return render_template('home.html')
 
 @app.route('/eligibility')
 def eligibility():
